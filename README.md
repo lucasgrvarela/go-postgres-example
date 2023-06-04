@@ -74,24 +74,17 @@ $ go run main.go
 ├── go.mod
 ├── go.sum
 ├── LICENSE
-├── main.go
-├── migrations
+├── main.go # Contains the main entry point of the application
+├── migrations # Directory containing the database migration scripts
 │   ├── 1_create_users_table.down.sql
 │   └── 1_create_users_table.up.sql
 ├── README.md
-└── user
-    ├── user.go
-    └── user_repository
-        ├── postgres_user_repository.go
-        └── user_repository.go
+└── user # Directory for the user domain
+    ├── user.go # Definition of the User struct
+    └── user_repository # Directory for the user repository
+        ├── postgres_user_repository.go # Implementation of the UserRepository interface using PostgreSQL
+        └── user_repository.go # Definition of the UserRepository interface
 ```
-* main.go: Contains the main entry point of the application.
-* migrations: Directory containing the database migration scripts.
-* user: Directory for the user domain.
-    * user.go: Definition of the User struct.
-    * user_repository: Directory for the user repository.
-        * user_repository.go: Definition of the UserRepository interface.
-        * postgres_user_repository.go: Implementation of the UserRepository interface using PostgreSQL.
 
 # Contributing
 Contributions are welcome! If you find any issues with the project or want to extend it further, feel free to open an issue or submit a pull request.
