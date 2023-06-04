@@ -92,3 +92,6 @@ go run main.go
     * user_repository: Directory for the user repository.
         * user_repository.go: Definition of the UserRepository interface.
         * postgres_user_repository.go: Implementation of the UserRepository interface using PostgreSQL.
+
+# Contributing
+Contributions are welcome! If you find any issues with the project or want to extend it further, feel free to open an issue or submit a pull request.
