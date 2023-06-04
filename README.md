@@ -28,7 +28,7 @@ docker run --name my-postgres-container -e POSTGRES_PASSWORD=mysecretpassword -p
 - Apply the migrations using the following command:
 
 ```bash
-migrate -database "postgres://postgres:mysecretpassword@localhost:5432/postgres?sslmode=disable" -path ./migrations up
+$ migrate -database "postgres://postgres:mysecretpassword@localhost:5432/postgres?sslmode=disable" -path ./migrations up
 Output: 1/u create_users_table (14.613453ms)
 ```
 Optional: you can validate the migration really created the tables inside the docker container postgres instance.
@@ -65,7 +65,7 @@ connString := "host=localhost port=5432 user=postgres password=mysecretpassword 
 
 5. Run the project:
 ```bash
-go run main.go
+$ go run main.go
 ```
 
 ## Project Structure
