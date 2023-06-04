@@ -1,9 +1,10 @@
-package main
+package user_repository
 
 import (
 	"database/sql"
 
 	_ "github.com/lib/pq"
+	"github.com/lucasgrvarela/go-postgres-example/user"
 )
 
 type PostgresUserRepository struct {
@@ -18,26 +19,25 @@ func NewPostgresUserRepository(connString string) (*PostgresUserRepository, erro
 	return &PostgresUserRepository{db: db}, nil
 }
 
-func (r *PostgresUserRepository) GetByID(id int) (*User, error) {
+func (r *PostgresUserRepository) GetByID(id int) (*user.User, error) {
 	query := "SELECT id, username, email FROM users WHERE id=$1"
 	row := r.db.QueryRow(query, id)
 
-	user := &User{}
+	user := &user.User{}
 	err := row.Scan(&user.ID, &user.Username, &user.Email)
 	if err != nil {
 		return nil, err
 	}
-
 	return user, nil
 }
 
-func (r *PostgresUserRepository) Create(user *User) error {
+func (r *PostgresUserRepository) Create(user *user.User) error {
 	query := "INSERT INTO users (username, email) VALUES ($1, $2) RETURNING id"
 	err := r.db.QueryRow(query, user.Username, user.Email).Scan(&user.ID)
 	return err
 }
 
-func (r *PostgresUserRepository) Update(user *User) error {
+func (r *PostgresUserRepository) Update(user *user.User) error {
 	query := "UPDATE users SET username=$1, email=$2 WHERE id=$3"
 	_, err := r.db.Exec(query, user.Username, user.Email, user.ID)
 	return err
