@@ -18,7 +18,7 @@ This is an example project that demonstrates the use of the Repository Pattern w
 - If you want to use a Docker container, run the following command to start a PostgreSQL container:
 
 ```bash
-docker run --name my-postgres-container -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres
+$ docker run --name my-postgres-container -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres
 ```
 
 3. Set up the database schema by applying the migration scripts located in the `migrations` folder.
