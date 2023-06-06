@@ -1,4 +1,4 @@
-# Go Postgres Example
+# Repository Pattern Postgres Example
 
 This is an example project that demonstrates the use of the Repository Pattern with PostgreSQL in Go.
 
